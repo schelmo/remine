@@ -11,6 +11,14 @@
     "release": "pnpm run build && pnpm run bump && pnpm publish"
   },
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/schelmo/remine.git"
+  },
+  "homepage": "https://github.com/schelmo/remine#readme",
+  "bugs": {
+    "url": "https://github.com/schelmo/remine/issues"
+  },
   "devDependencies": {
     "@types/minimist": "^1.2.2",
     "@types/node": "^18.14.4",
