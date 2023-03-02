@@ -2,6 +2,14 @@
 
 > A simple command line tool for list and quickly update issues
 
+## installation
+
+`npm install -g remine`
+
+on arch linux:
+
+`yay -S remine` (change yay with your favorite aur manager)
+
 ### list issues
 
 ```bash
