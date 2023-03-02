@@ -2,11 +2,12 @@
   "name": "remine",
   "version": "0.1.4",
   "description": "A simple cli for redmine",
-  "bin": "bin/remine.cjs",
+  "bin": "bin/remine.js",
   "type": "module",
   "scripts": {
-    "build": "esbuild --platform=node --bundle src/remine.ts --outfile=bin/remine.cjs --minify",
-    "dev": "esbuild --platform=node --bundle src/remine.ts --outfile=bin/remine.cjs --watch",
+    "esbuild": "esbuild --platform=node --bundle src/remine.ts --format=esm --outfile=bin/remine.js --packages=external",
+    "build": "pnpm run esbuild --minify",
+    "dev": "rm bin/*; pnpm run esbuild --watch",
     "bump": "bumpp package.json",
     "release": "pnpm run build && pnpm run bump && pnpm publish"
   },
@@ -19,17 +20,19 @@
   "bugs": {
     "url": "https://github.com/schelmo/remine/issues"
   },
+  "dependencies": {
+    "kolorist": "^1.7.0",
+    "minimist": "^1.2.8",
+    "prompts": "^2.4.2",
+    "axios-redmine": "^0.1.26",
+    "xdg-basedir": "^5.1.0"
+  },
   "devDependencies": {
     "@types/minimist": "^1.2.2",
     "@types/node": "^18.14.4",
     "@types/prompts": "^2.4.2",
-    "axios-redmine": "^0.1.26",
     "bumpp": "^9.0.0",
     "esbuild": "^0.17.10",
-    "kolorist": "^1.7.0",
-    "minimist": "^1.2.8",
-    "prompts": "^2.4.2",
-    "typescript": "^4.9.5",
-    "xdg-basedir": "^5.1.0"
+    "typescript": "^4.9.5"
   }
 }

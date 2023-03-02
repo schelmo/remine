@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import minimist from "minimist";
 import { readState } from "./state";
 import { list, reject, fix, create, help } from "./cmds";
