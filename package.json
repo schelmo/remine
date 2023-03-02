@@ -1,0 +1,24 @@
+{
+  "name": "rmine",
+  "version": "0.1.0",
+  "description": "A simple cli for redmine",
+  "bin": "bin/rmine.cjs",
+  "type": "module",
+  "scripts": {
+    "build": "esbuild --platform=node --bundle src/rmine.ts --outfile=bin/rmine.cjs --minify",
+    "dev": "esbuild --platform=node --bundle src/rmine.ts --outfile=bin/rmine.cjs --watch"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@types/minimist": "^1.2.2",
+    "@types/node": "^18.14.4",
+    "@types/prompts": "^2.4.2",
+    "axios-redmine": "^0.1.26",
+    "esbuild": "^0.17.10",
+    "kolorist": "^1.7.0",
+    "minimist": "^1.2.8",
+    "prompts": "^2.4.2",
+    "typescript": "^4.9.5",
+    "xdg-basedir": "^5.1.0"
+  }
+}
