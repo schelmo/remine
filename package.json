@@ -1,6 +1,6 @@
 {
   "name": "remine",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "A simple cli for redmine",
   "bin": "bin/remine.cjs",
   "type": "module",
