@@ -14,7 +14,7 @@ export async function preCheck() {
       onState,
     });
     if (!response.value) {
-      console.log(red("No url, no rmine :("));
+      console.log(red("No url, no remine :("));
       process.exit();
     }
     state.url = response.value.trim();
@@ -28,7 +28,7 @@ export async function preCheck() {
       onState,
     });
     if (!response.value) {
-      console.log(red("No Key, no rmine :("));
+      console.log(red("No Key, no remine :("));
       process.exit();
     }
     state.apiKey = response.value.trim();

@@ -14,7 +14,7 @@ export function redmine(): Redmine {
   return _redmine;
 }
 
-const stateFile = resolve(xdgState as string, "rmine", "state.json");
+const stateFile = resolve(xdgState as string, "remine", "state.json");
 
 export async function readState() {
   try {
