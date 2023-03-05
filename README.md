@@ -1,6 +1,6 @@
 # remine
 
-> A simple command line tool for list and quickly update issues
+> A simple command line tool for redmine to list and quickly update issues
 
 ## installation
 
