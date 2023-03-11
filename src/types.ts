@@ -32,8 +32,21 @@ export interface Tracker {
   enabled_standard_fields: string[];
 }
 
+export interface User {
+  id: number;
+  name: string;
+}
+
+export interface Journal {
+  id: number;
+  user: User;
+  notes: string;
+  created_on: string;
+}
+
 export interface Issue {
   id: number;
+  author: User;
   project: Pick<Project, "id" | "name">;
   tracker: Pick<Tracker, "id" | "name">;
   status: IssueStatus;
@@ -41,14 +54,7 @@ export interface Issue {
     id: number;
     name: string;
   };
-  author: {
-    id: number;
-    name: string;
-  };
-  assigned_to?: {
-    id: number;
-    name: string;
-  };
+  assigned_to?: User;
   subject: string;
   description: string;
   start_date: string;

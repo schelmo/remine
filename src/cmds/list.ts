@@ -1,7 +1,7 @@
 import minimist from "minimist";
-import { cyan, red } from "kolorist";
+import { cyan, red, yellow } from "kolorist";
 import { redmine } from "../state";
-import { Project } from "../types";
+import { Project, Journal } from "../types";
 import { formatProjectName, sortProjectsFunc } from "../utils";
 import { update } from "./update";
 import { selectIssue } from "../selects";
@@ -40,9 +40,15 @@ export async function list(argv: minimist.ParsedArgs) {
       );
     }
   }
-  const issue = await selectIssue(message, project_ids);
+  let issue = await selectIssue(message, project_ids);
 
   if (!issue) return;
+
+  // get the details of the issue
+  const res = await redmine().get_issue_by_id(issue.id, {
+    include: "journals",
+  });
+  const { journals } = res.data.issue;
 
   console.log(`
 Subject: ${issue.subject}
@@ -58,6 +64,14 @@ Due date: ${issue.due_date}
     console.log(issue.description);
     console.log("\n======================");
   }
+
+  console.log(cyan("=n=o=t=e=s="));
+  journals.forEach((journal: Journal) => {
+    console.log(yellow(`${journal.user.name} wrote on ${journal.created_on}`));
+    console.log(journal.notes.trim());
+    console.log("\n");
+  });
+  console.log(cyan("==========="));
 
   const response = await prompts({
     type: "select",
