@@ -20,6 +20,7 @@
   "bugs": {
     "url": "https://github.com/schelmo/remine/issues"
   },
+  "keywords": ["redmine"],
   "dependencies": {
     "kolorist": "^1.7.0",
     "minimist": "^1.2.8",
